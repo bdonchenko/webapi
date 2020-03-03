@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapi-deployment
+spec:
+  selector:
+    matchLabels:
+      app: webapi-pod
+  template:
+    metadata:
+      labels:
+        app: webapi-pod
+    spec:
+      containers:
+        - name: webapi-container
+          image: webapi:v1
+          resources:
+              limits:
+                memory: "128Mi"
+                cpu: "500m"
+          ports:
+            -  containerPort: 80

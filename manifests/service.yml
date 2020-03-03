@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapi-service
+spec:
+  selector:
+    app: webapi-pod
+  ports:
+  - port: 5000
+    targetPort: 80
+  type: LoadBalancer
