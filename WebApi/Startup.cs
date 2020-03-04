@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace webapi
+namespace WebApi
 {
     public class Startup
     {
@@ -30,6 +30,8 @@ namespace webapi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
