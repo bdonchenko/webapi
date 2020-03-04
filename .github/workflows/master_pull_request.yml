@@ -1,0 +1,31 @@
+name: Push_Master_Pipeline
+
+env:
+  APPLICATION_NAME: 'webapi-starter'
+  DEPLOY_PACKAGE_NAME: 'korona.azurecr.io/webapi:${{ github.sha }}'
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    # using ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Git Checkout'
+        uses: actions/checkout@v1
+
+      - name: 'Setup dotnet'
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.100' # SDK Version to use.
+      
+      - name: 'Tests'
+        run: dotnet test
+
+      - name: 'Docker build'
+        run: |
+          docker build . -t ${{ env.DEPLOY_PACKAGE_NAME }}
