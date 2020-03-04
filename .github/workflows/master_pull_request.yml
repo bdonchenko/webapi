@@ -1,4 +1,4 @@
-name: Push_Master_Pipeline
+name: Pull_Request_Master_Pipeline
 
 env:
   APPLICATION_NAME: 'webapi-starter'
