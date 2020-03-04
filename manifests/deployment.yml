@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: webapi-container
-          image: webapi:v1
+          image: korona.azurecr.io/webapi:v1
           resources:
               limits:
                 memory: "128Mi"
